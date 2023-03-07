@@ -4,19 +4,15 @@ services:
   rstudio:
     build: .
     environment:
-      - AWS_PROFILE=${AWS_PROFILE-default}
-      - AWS_REGION="us-east-2"
       - DISABLE_AUTH=true
       - ROOT=TRUE
-      # - MORNINGSTAR_API_USER=mthomson@sysotechnologies.com
-      # - MORNINGSTAR_API_PWD=l8lY2#w2uXIVkHl^UDMdqt^
     volumes:
       - ~/Code/sysotech:/home/rstudio
       - ~/.aws:/home/rstudio/.aws
-      - ./.Renviron:/home/rstudio/.Renviron
+      - ./.Renviron:/usr/local/lib/R/etc/Renviron.site
       - ~/.bashrc:/home/rstudio/.bashrc
-      - ./site-library:/usr/local/lib/R/site-library  # Shared libraries
-      # - ${LIBPATH}:/usr/local/lib/R/library  # Project-specific library
+      - ./libraries/syso-957-ge-pid:/usr/local/lib/R/site-library  # R libraries
+      - ./syso_packages:/home/rstudio/syso_packages
     ports:
       - 127.0.0.1:8787:8787
-
+      - 1410:1410

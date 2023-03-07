@@ -1,2 +1,4 @@
 site-library/*
 .Renviron
+libraries/*
+syso_packages/*
