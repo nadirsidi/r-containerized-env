@@ -11,7 +11,7 @@ services:
       - ~/.aws:/home/rstudio/.aws
       - ./.Renviron:/usr/local/lib/R/etc/Renviron.site
       - ~/.bashrc:/home/rstudio/.bashrc
-      - ./libraries/syso-957-ge-pid:/usr/local/lib/R/site-library  # R libraries
+      - ./libraries/ercot-optim:/usr/local/lib/R/site-library  # R libraries
       - ./syso_packages:/home/rstudio/syso_packages
     ports:
       - 127.0.0.1:8787:8787
